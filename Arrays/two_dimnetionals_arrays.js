@@ -1,707 +1,371 @@
-// /* Searching for a value in Array with accessor functions */
+// Two dimentional array.
 
 
-// // searching for first occurance of value. 
+//processing the average grades
 
-// var names = ["john", "mike", "johnson", "hajris", "ali"];
+var grades = [[89, 77, 78],[76, 82, 81],[91, 94, 89]];
+var total = 0;
+var average = 0.0;
 
-// putstr("Enter a name here: ");
-// var name = readline();
+for (var row = 0; row < grades.length; row++) {
+	for (var col = 0; col < grades[row].length; col++) {
+		total += grades[row][col];
+	}
+	  average = total / grades[row].length;
+	  print("Student " + parseInt(row+1) + " average: " +
+             average.toFixed(2));
 
-// var pos = names.indexOf(name);
-// if(pos >= 0) {
-// 	print(name + " found at this position " + pos + ".");
-// } else {
-// 	print("Unfortunately " + name + " was not found.");
-// }
+	   total = 0;
+       average = 0.0;
+}
 
+// row-wise computation
 
+var grades = [[89, 77, 78],[76, 82, 81],[91, 94, 89]]; 
+var total = 0;
+var average = 0.0;
+for (var col = 0; col < grades.length; ++col) {
+for (var row = 0; row < grades[col].length; ++row) { total += grades[row][col];
+}
+       average = total / grades[col].length;
+       print("Test " + parseInt(col+1) + " average: " +
+             average.toFixed(2));
+       total = 0;
+       average
+	   = 0.0;
+    }
 
 
-// // searching for first and last occurance of value.
+// Jagged arrays
 
+var grades = [[89, 77],[76, 82, 81],[91, 94, 89, 99]]; var total = 0;
+var average = 0.0;
+for (var row = 0; row < grades.length; ++row) {
+for (var col = 0; col < grades[row].length; ++col) { total += grades[row][col];
+       }
+       average = total / grades[row].length;
+       print("Student " + parseInt(row+1) + " average: " +
+             average.toFixed(2));
+       total = 0;
+       average = 0.0;
+    }
 
-// var names = ["john", "hajris", "mike", "johnson", "hajris", "ali"];
 
-// putstr("Enter a name here: ");
-// var name = readline();
 
-// var pos = names.indexOf(name); // first position
-// if(pos >= 0) {
-// 	print(name + " first position " + pos + ".");
-// } 
+// Array of objects
 
-// var pos2 = names.lastIndexOf(name); // last position
-// if(pos2 >= 0)  {
-// 	print(name + " last position " + pos2 + ".");
-// } else {
-// 	print("Unfortunately " + name + " was not found.");
-// }
 
+function Point(x, y) {
+	this.x = x;
+	this.y = y;
+}
 
+function displayPts(arry) {
+	for (var i = 0; i < arry.length; i++) {
+		 print(arry[i].x + " , " + arry[i].y);	
+	}
+}
 
+var pt1 = new Point(5,4);
+var pt2 = new Point(6,4);
+var pt3 = new Point(7,4);
+var pt4 = new Point(8,4);
 
-// // Creating an array from an existent array.
+var points = [pt1, pt2, pt3, pt4]
 
-// // Using concat Function:
 
-// // // Merging arr1 with arr2 
-// var arr1 = ["john", "mike", "johnson", "hajris", "ali"];
-// var arr2 = ["carlie", "manson", "mia"]
-// var concat = arr1.concat(arr2); //arr1 appears first;
-// print(concat);
+for (var i = 0; i < points.length; i++) {
+	print("Point " + parseInt(i+1) + " : " + points[i].x + " , " + points[i].y);
+}
 
+var pt5 = new Point(9,4);
+points.push(pt5);
+print("After a new object has been pushed: ");
+displayPts(points)
+points.pop()
+print("after the new object has been popped: ");
+displayPts(points);
 
-// var arr1 = ["john", "mike", "johnson", "hajris", "ali"];
-// var arr2 = ["carlie", "manson", "mia"]
-// var concat = arr2.concat(arr1);  // arr2 appears first;
-// print(concat);
 
 
-// // Splice Funtion
+// Arrays in object
 
-// var arr = ["john", "mike", "johnson", "hajris", "ali", "salah"];
-// var spliced = arr1.splice(3,3); // at index 3, 3 names are extracted into a new array
-// print(spliced); // new array displays "hajris", "ali", "salah"
 
+function weekTemps() { 
+	this.dataStore = []; 
+	this.add = add; 
+	this.average = average;
+	this.displayTemps = displayTemps;
+}
 
-// /* Mutator Functions */
-
-
-// // Adding elements to an array.
-
-// // method one, the push Function
-
-// var array = [1, 2, 3, 4, 5]
-// array.push(6); // Adds  a number to the end of the array
-// print(array);  // Displayes the array with a new number added
-
-// // method two, the length Function
-
-// var array = [1, 2, 3, 4, 5]
-// array[array.length] = 6; // Adds  a number to the end of the array
-// print(array);  // Displayes the array with a new number added
-
-
-// // adding an element to the beginning of the the array without the benifit of mutator functions 
-
-// var nums = [2, 3, 4, 5];
-// var newNums = 1;
-
-
-// for (var i = nums.length; i >= 0; i--) {
-// 	nums[i] = nums[i-1]; 
-// }
-
-// nums[0] = newNums
-// print(nums);
-
-
-// //adding an element to the beginning with the mutator functions 
-
-// var nums = [3, 4, 5];
-// nums.unshift(newNums, 2); // adding multiple number with unshift method
-// print(nums);
-
-
-
-// // Removing an element from an array
-
-// var nums = [1,2,3,4,5,10];
-// nums.pop();
-// print(nums);
-
-// for (var i = 0; i < nums.length; i++) {
-// 	nums[i] = nums[i+1];
-// }
-// print(nums);
-
-// var nums = [6,1,2,3,4,5];
-
-// var first = nums.shift();
-// nums.push(first);
-// print(nums);
-
-
-
-
-// //Adding and Removing Elements from the Middle of an Array with splice method
-
-// // adding
-// var nums = [1,2,3,7,8];
-// var newNums = [4,5,6]
-// nums.splice(3, 0, newNums);
-// print(nums);
-
-// var nums = [1,2,3,7,8]; 
-// nums.splice(3,0,4,5,6); 
-// print(nums);
-
-// //removing
-
-// var nums = [1,2,3,10,11,12,4,5,6,7,8]; 
-// nums.splice(3,3);
-// print(nums);
-
-
-
-
-
-
-
-
-// // // sorting strings 
-
-// var strings = ["john", "mike", "johnson", "hajris", "ali", "salah"];
-// var sort = strings.sort();
-// print(sort);
-// print(strings.reverse());
-
-
-
-// // Sorting numbers 
-
-// var nums = [1,2,3,4,5,6,7,8]; 
-// var reverse = nums.reverse();
-// print(reverse);
-
-// function compare(num1, num2) {
-// 	return num1 - num2;
-// }
-// print(nums.sort(compare));
-
-
-
-
-// Iterator Functions that perform opperations on array.
-
-// ForEach: runs a function on every element on the array
-
-
-// function square(num) {
-// 	return print(num, num * num);
-// }
-// var nums = [1, 2, 3, 4, 5, 6];
-// nums.forEach(square);  // displays 1 1, 2 4, 3 9, 4 16, 5 25, 6 36 
-
-
-
-
-
-
-
-// // Every; applies a Boolean function to an array
-// var nums = [1, 2, 3, 4, 5, 6];
-// function isEven(num) {
-// 	return num % 2 == 0 ;
-// }
-
-// var even = nums.every(isEven)
-// if (even) {
-// 	print("all number are even");
-// } else {
-// 	print("Not all numbers are even") // displays not all numbers are even
-// }
-
-
-// var nums = [2, 6, 4, 8, 10];
-// var even = nums.every(isEven)
-// if (even) {
-// 	print("all number are even"); // displays all number are even
-// } else {
-// 	print("Not all numbers are even") 
-// }
-
-
-
-// // Some: return true if some number are even
-
-// var nums = [2, 9, 4, 17, 10];
-// function isEven(num) {
-// 	return num % 2 == 0 ;
-// }
-// var someEven = nums.some(isEven);
-// if(someEven) {
-// 	print("Some numbers are even");
-// } else {
-// 	print("No numbers are even");
-// }
-
-
-//  Reduce: pplies a function to an accumulator and the successive elements 
-// of an array until the end of the array is reached, yielding a single value 
-
-// var nums = [2, 9, 4, 17, 10];
-// function add(accumulator, currentValue) {
-// 	return accumulator + currentValue;
-// }
-// var total = nums.reduce(add);
-// print(total); // displays 42;
-
-
-
-// // Reduce on a string 
-// function concat(accumulatedString, item) {
-// 	return accumulatedString + item;
-// }
-// var words = ["hello ", "every ", "body", "! "];
-// var sentence = words.reduce(concat);
-// print(sentence); // hello every body! 
-
-// var rightReduce = words.reduceRight(concat); // displays ! bodyevery hello 
-// print(rightReduce);
-
-
-
-//  //Iterator Functions that return a new array
-
-// // Map function 
-
-// function curve(grade) {
-// 	return grade += 5;
-// }
-// var grades = [44,77, 65, 63, 79]
-
-// var newGrades = grades.map(curve);
-// print(newGrades);
-
-
-
-// function first(word) {
-// 	return word[0];
-// }
-// var words = ["hello", "every", "body", "!"];
-// var acronym = words.map(first);
-// print(acronym.join(""));
-
-
-
-
-// // Filter function 
-
-// function isEven(num) {
-// 	return num % 2 == 0 ;
-// }
-
-// function isOdd(num) {
-// 	return num % 2 != 0 ;
-// }
-
-// var nums = [];
-// for (var i = 0; i < 20; i++) {
-// 	nums[i] = i+1;
-// }
-// var evenNumbers = nums.filter(isEven);
-// print("Even numbers: " + evenNumbers); // displays 2,4,6,8,10,12,14,16,18,20
-
-// var oddNumbers = nums.filter(isOdd);
-// print("Even odds: " + oddNumbers);  // displays 1,3,5,7,9,11,13,15,17,19
-
-
-
-
-
-// function passingGrades(num) {
-// 	return num >= 60;
-// }
-
-// var grades = [];
-// for (var i = 0; i < 20; i++) {
-// 	grades[i] = Math.floor(Math.random() * 101);
-// }
-
-// print("All grades: " + grades);
-// var passGrades = grades.filter(passingGrades);
-// print("Passing grades: " + passGrades);
-
-
-
-// function afterc(str) {
-// 	if (str.indexOf("cie") > -1) {
-// 	return true; 
-// 	} else {
-// 	return false; 
-// 	}
-// }
-// var words = ["recieve","deceive","percieve","deceit","concieve"]; 
-// var misspelled = words.filter(afterc);
-// print(misspelled); // displays recieve,percieve,concieve
-
-
-
-
-
-
-
-
-// // Two dimentional array.
-
-// //processing the average grades
-
-
-// var grades = [[89, 77, 78],[76, 82, 81],[91, 94, 89]];
-// var total = 0;
-// var average = 0.0;
-
-// for (var row = 0; row < grades.length; row++) {
-// 	for (var col = 0; col < grades[row].length; col++) {
-// 		total += grades[row][col];
-// 	}
-// 	  average = total / grades[row].length;
-// 	  print("Student " + parseInt(row+1) + " average: " +
-//              average.toFixed(2));
-
-// 	   total = 0;
-//        average = 0.0;
-// }
-
-// // row-wise computation
-
-// var grades = [[89, 77, 78],[76, 82, 81],[91, 94, 89]]; 
-// var total = 0;
-// var average = 0.0;
-// for (var col = 0; col < grades.length; ++col) {
-// for (var row = 0; row < grades[col].length; ++row) { total += grades[row][col];
-// }
-//        average = total / grades[col].length;
-//        print("Test " + parseInt(col+1) + " average: " +
-//              average.toFixed(2));
-//        total = 0;
-//        average
-// 	   = 0.0;
-//     }
-
-
-// // Jagged arrays
-
-// var grades = [[89, 77],[76, 82, 81],[91, 94, 89, 99]]; var total = 0;
-// var average = 0.0;
-// for (var row = 0; row < grades.length; ++row) {
-// for (var col = 0; col < grades[row].length; ++col) { total += grades[row][col];
-//        }
-//        average = total / grades[row].length;
-//        print("Student " + parseInt(row+1) + " average: " +
-//              average.toFixed(2));
-//        total = 0;
-//        average = 0.0;
-//     }
-
-
-
-// // Array of objects
-
-
-// function Point(x, y) {
-// 	this.x = x;
-// 	this.y = y;
-// }
-
-// function displayPts(arry) {
-// 	for (var i = 0; i < arry.length; i++) {
-// 		 print(arry[i].x + " , " + arry[i].y);	
-// 	}
-// }
-
-// var pt1 = new Point(5,4);
-// var pt2 = new Point(6,4);
-// var pt3 = new Point(7,4);
-// var pt4 = new Point(8,4);
-
-// var points = [pt1, pt2, pt3, pt4]
-
-
-// for (var i = 0; i < points.length; i++) {
-// 	print("Point " + parseInt(i+1) + " : " + points[i].x + " , " + points[i].y);
-// }
-
-// var pt5 = new Point(9,4);
-// points.push(pt5);
-// print("After a new object has been pushed: ");
-// displayPts(points)
-// points.pop()
-// print("after the new object has been popped: ");
-// displayPts(points);
-
-
-
-// // Arrays in object
-
-
-// function weekTemps() { 
-// 	this.dataStore = []; 
-// 	this.add = add; 
-// 	this.average = average;
-// 	this.displayTemps = displayTemps;
-// }
-
-// function add(temp) {
-// 	this.dataStore.push(temp);
-// }
-
-// function average() {
-// 	var total = 0;
-// 	for (var i = 0; i < this.dataStore.length; i++) {
-// 		total += dataStore[i];
-// 	}
-// 	return  total / dataStore[i].length;
-// }
-
-// function displayTemps() {
-// 	for (var i = 0; i < this.dataStore.length; i++) {
-// 		print(this.dataStore[i])
+function add(temp) {
+	this.dataStore.push(temp);
+}
+
+function average() {
+	var total = 0;
+	for (var i = 0; i < this.dataStore.length; i++) {
+		total += dataStore[i];
+	}
+	return  total / dataStore[i].length;
+}
+
+function displayTemps() {
+	for (var i = 0; i < this.dataStore.length; i++) {
+		print(this.dataStore[i])
 		
-// 	}
+	}
 	
-// }
+}
 
-// var thisWeek = new weekTemps()
-// thisWeek.add(50);
-// thisWeek.add(55);
-// thisWeek.add(59);
-// thisWeek.add(60);
-// thisWeek.add(59);
-// this.thisWeek.displayTemps()
-
-
-// function Grades() {
-// 	this.studentGrades = [];
-// 	this.add = add;
-// 	this.displayGrades = displayGrades;
-// 	this.average = average;
-// 	this.passing = passing;
-// }
-
-// function add() {
-// 	 for (var i = 0; i < 20; i++) {
-// 	 	 this.studentGrades[i] = Math.floor(Math.random() * 101);
-// 	 }
-// }
+var thisWeek = new weekTemps()
+thisWeek.add(50);
+thisWeek.add(55);
+thisWeek.add(59);
+thisWeek.add(60);
+thisWeek.add(59);
+this.thisWeek.displayTemps()
 
 
-// function displayGrades() {
-// 	 print("All grades: " + this.studentGrades);
-// } 	
+function Grades() {
+	this.studentGrades = [];
+	this.add = add;
+	this.displayGrades = displayGrades;
+	this.average = average;
+	this.passing = passing;
+}
 
-// function average() {
-// 	var average = 0.0;
-// 	var total = 0;
-// 	for (var i = 0; i < this.studentGrades.length; i++) {
-// 		total += this.studentGrades[i];
-// 	}
-// 	return average = 
-// 	"Student's grade average: " + total / this.studentGrades.length;
-//  }
-
-//  function passing(num) {
-//  	if( num > 64) {
-//  		return  num;
-//  	}
-//  }
-
-// var newGrades = new Grades() 
-// 	newGrades.add();
-// 	print(newGrades.average());
-// 	print("Passing Grades: " + newGrades.studentGrades.filter(passing));
-// 	newGrades.displayGrades();
+function add() {
+	 for (var i = 0; i < 20; i++) {
+	 	 this.studentGrades[i] = Math.floor(Math.random() * 101);
+	 }
+}
 
 
-// var words = ["let's ", "join ", "these ", "words ", "forward ", "and ", "backwards "];
-// function concat(accumulatedString, item){
-// 	return accumulatedString + item;
-// }
-// var join = words.reduce(concat);
-// print(join);
+function displayGrades() {
+	 print("All grades: " + this.studentGrades);
+} 	
 
-// var rightConcat = words.reduceRight(concat);
-// print(rightConcat);
+function average() {
+	var average = 0.0;
+	var total = 0;
+	for (var i = 0; i < this.studentGrades.length; i++) {
+		total += this.studentGrades[i];
+	}
+	return average = 
+	"Student's grade average: " + total / this.studentGrades.length;
+ }
 
+ function passing(num) {
+ 	if( num > 64) {
+ 		return  num;
+ 	}
+ }
 
-// function Letters() {
-// 	this.arrayLetters = [];
-// 	this.add = add
-// 	this.displayLetters = displayLetters;
-// }
-
-// function add(letter) {
-// 	return this.arrayLetters.push(letter);
-// }
-
-// function concat(accumilatedLetters, letter) {
-// 	return accumilatedLetters + letter;
-
-// }
-
-// function displayLetters() {
-// 	print(this.arrayLetters.reduce(concat).toUpperCase());
-// }
+var newGrades = new Grades() 
+	newGrades.add();
+	print(newGrades.average());
+	print("Passing Grades: " + newGrades.studentGrades.filter(passing));
+	newGrades.displayGrades();
 
 
+var words = ["let's ", "join ", "these ", "words ", "forward ", "and ", "backwards "];
+function concat(accumulatedString, item){
+	return accumulatedString + item;
+}
+var join = words.reduce(concat);
+print(join);
 
-// var newLetters = new Letters();
-// newLetters.add("a");
-// newLetters.add("h");
-// newLetters.add("m");
-// newLetters.add("e");
-// newLetters.add("d");
-// newLetters.displayLetters();
+var rightConcat = words.reduceRight(concat);
+print(rightConcat);
+
+
+function Letters() {
+	this.arrayLetters = [];
+	this.add = add
+	this.displayLetters = displayLetters;
+}
+
+function add(letter) {
+	return this.arrayLetters.push(letter);
+}
+
+function concat(accumilatedLetters, letter) {
+	return accumilatedLetters + letter;
+
+}
+
+function displayLetters() {
+	print(this.arrayLetters.reduce(concat).toUpperCase());
+}
 
 
 
-// function weekTemps() { 
-// 	this.dataStore = []; 
-// 	this.add = add; 
-// 	this.weekAverage = weekAverage;
-// 	this.monthAverage = monthAverage;
-
-// }
-
-// function add(temp) { 
-// 	this.dataStore.push(temp);
-// }
+var newLetters = new Letters();
+newLetters.add("a");
+newLetters.add("h");
+newLetters.add("m");
+newLetters.add("e");
+newLetters.add("d");
+newLetters.displayLetters();
 
 
-// function weekAverage() {
-// 	var total = 0;
-// 	for (var i = 0; i < this.dataStore.length; ++i) {
-// 		total += this.dataStore[i]; 
-// 	}
-// 	 total = total / this.dataStore.length; 
-// 	 return total.toFixed(2)
-// }
 
-// function monthAverage() {
-// 	var total = 0;
-// 	var average = 0.0;
-// 	for (var row = 0; row < this.dataStore.length; ++row) {
-// 		for (var col = 0; col < this.dataStore[row].length; ++col) { 
-// 			total += this.dataStore[row][col];
+function weekTemps() { 
+	this.dataStore = []; 
+	this.add = add; 
+	this.weekAverage = weekAverage;
+	this.monthAverage = monthAverage;
+
+}
+
+function add(temp) { 
+	this.dataStore.push(temp);
+}
+
+
+function weekAverage() {
+	var total = 0;
+	for (var i = 0; i < this.dataStore.length; ++i) {
+		total += this.dataStore[i]; 
+	}
+	 total = total / this.dataStore.length; 
+	 return total.toFixed(2)
+}
+
+function monthAverage() {
+	var total = 0;
+	var average = 0.0;
+	for (var row = 0; row < this.dataStore.length; ++row) {
+		for (var col = 0; col < this.dataStore[row].length; ++col) { 
+			total += this.dataStore[row][col];
  
-// 		}
+		}
 
-//        average = total / this.dataStore[row].length;
-//        return average.toFixed(2);
-//        total = 0;
-//        average = 0.0;
-//     }
-// }
-
-
+       average = total / this.dataStore[row].length;
+       return average.toFixed(2);
+       total = 0;
+       average = 0.0;
+    }
+}
 
 
 
 
-// var week1 = new weekTemps();
-// week1.add(52);
-// week1.add(55);
-// week1.add(61);
-// week1.add(65);
-// week1.add(55);
-// week1.add(50);
-// week1.add(52);
-// print(week1.weekAverage()); // displays 54.875
-
-// var week2 = new weekTemps();
-// week2.add(52);
-// week2.add(55);
-// week2.add(60);
-// week2.add(63);
-// week2.add(61);
-// week2.add(64);
-// week2.add(66);
-// print(week2.weekAverage()); // displays 54.875
-
-// var week3 = new weekTemps();
-// week3.add(45);
-// week3.add(40);
-// week3.add(45);
-// week3.add(50);
-// week3.add(55);
-// week3.add(60);
-// week3.add(65);
-// print(week3.weekAverage());
-
-// var week4 = new weekTemps();
-// week4.add(50);
-// week4.add(55);
-// week4.add(61);
-// week4.add(70);
-// week4.add(74);
-// week4.add(78);
-// week4.add(75);
-// print(week4.weekAverage());
 
 
-// var thisMonth = new weekTemps();
-// var randomMonth = [
+var week1 = new weekTemps();
+week1.add(52);
+week1.add(55);
+week1.add(61);
+week1.add(65);
+week1.add(55);
+week1.add(50);
+week1.add(52);
+print(week1.weekAverage()); // displays 54.875
+
+var week2 = new weekTemps();
+week2.add(52);
+week2.add(55);
+week2.add(60);
+week2.add(63);
+week2.add(61);
+week2.add(64);
+week2.add(66);
+print(week2.weekAverage()); // displays 54.875
+
+var week3 = new weekTemps();
+week3.add(45);
+week3.add(40);
+week3.add(45);
+week3.add(50);
+week3.add(55);
+week3.add(60);
+week3.add(65);
+print(week3.weekAverage());
+
+var week4 = new weekTemps();
+week4.add(50);
+week4.add(55);
+week4.add(61);
+week4.add(70);
+week4.add(74);
+week4.add(78);
+week4.add(75);
+print(week4.weekAverage());
+
+
+var thisMonth = new weekTemps();
+var randomMonth = [
   
-//   [45,23,32,12,31,21,22],
-//   [12,12,13,11,9,34,23],
-//   [33,34,23,25,26,12,11],
-//   [14,15,18,19,22,24,25]
+  [45,23,32,12,31,21,22],
+  [12,12,13,11,9,34,23],
+  [33,34,23,25,26,12,11],
+  [14,15,18,19,22,24,25]
 
-// ];
-// thisMonth.add(randomMonth)
-
-
+];
+thisMonth.add(randomMonth)
 
 
-// print(thisMonth.dataStore[0][1])
 
-// const fibonaci = [];
-// fibonaci[1] = 1;
-// fibonaci[2] = 1;
 
-// for (var i = 3; i < 20; i++) {
-// 	print(fibonaci[i] = fibonaci[i - 1] + fibonaci[i - 2]);
+print(thisMonth.dataStore[0][1])
 
-// } 
+const fibonaci = [];
+fibonaci[1] = 1;
+fibonaci[2] = 1;
 
-// for(var i = 1; i<fibonacci.length; i++){ //{5} 
-//   console.log(fibonacci[i]);         }  //{6} 
+for (var i = 3; i < 20; i++) {
+	print(fibonaci[i] = fibonaci[i - 1] + fibonaci[i - 2]);
 
-// var numbers = [];
-// for (var i = 0; i < 14; i++) {
+} 
+
+for(var i = 1; i<fibonacci.length; i++){ //{5} 
+  console.log(fibonacci[i]);         }  //{6} 
+
+var numbers = [];
+for (var i = 0; i < 14; i++) {
 	
 	
-// 	numbers[i] = i + 1;
+	numbers[i] = i + 1;
 
-// }
+}
 
-// numbers.push(15);
-// numbers.push(16);
-// print(numbers)
+numbers.push(15);
+numbers.push(16);
+print(numbers)
 
-// for (var i = numbers.length; i >= 0 ; i--) {
-// 	numbers[i] = numbers[i-1]
+for (var i = numbers.length; i >= 0 ; i--) {
+	numbers[i] = numbers[i-1]
 	
-// }
-// numbers[0] = -1;
-// print(numbers)
+}
+numbers[0] = -1;
+print(numbers)
 
 
-// for (var i = 0; i < numbers.length; i++) {
-// 	numbers[i] = numbers[i + 1]
-// }
+for (var i = 0; i < numbers.length; i++) {
+	numbers[i] = numbers[i + 1]
+}
 
-// numbers[0] = -2;
-// print(numbers);
-
-
+numbers[0] = -2;
+print(numbers);
 
 
-// var averageTemp = []; 
-// averageTemp[0] = [72,75,79,79,81,81]; 
-// averageTemp[1] = [81,79,75,75,73,72]; 
 
-// function printMyMatrix(myMatrix) {
-// 	for (var i = 0; i < myMatrix.length; i++) {
-// 		for (var j = 0; j < myMatrix[i].length; j++) {
-// 			 print(myMatrix[i][j]);
-// 		}
-// 	}
-// }
 
-// printMyMatrix(averageTemp)
+var averageTemp = []; 
+averageTemp[0] = [72,75,79,79,81,81]; 
+averageTemp[1] = [81,79,75,75,73,72]; 
+
+function printMyMatrix(myMatrix) {
+	for (var i = 0; i < myMatrix.length; i++) {
+		for (var j = 0; j < myMatrix[i].length; j++) {
+			 print(myMatrix[i][j]);
+		}
+	}
+}
+
+printMyMatrix(averageTemp)
 
 var matrix3x3x3 = []; 
 for (var i=0; i<3; i++){ 
